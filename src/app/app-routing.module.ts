@@ -8,8 +8,20 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'area-de-produtos',
     pathMatch: 'full'
+  },
+  {
+    path: 'formulario',
+    loadChildren: () => import('./Formulario/formulario/formulario.module').then( m => m.FormularioPageModule)
+  },
+  {
+    path: 'area-de-produtos',
+    loadChildren: () => import('./area-de-produtos/area-de-produtos.module').then( m => m.AreaDeProdutosPageModule)
+  },
+  {
+    path: 'produtos-detalhes/:id',
+    loadChildren: () => import('./area-de-produtos/produtos-detalhes/produtos-detalhes.module').then( m => m.ProdutosDetalhesPageModule)
   },
 ];
 

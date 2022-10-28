@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #form = "ngForm" [formGroup] = "clienteForm" (ngSubmit) = "enviar()">
+    <ion-item>
+      <ion-label position = "floating">Nome: </ion-label>
+      <ion-input [(ngModel)]= "cliente.nome" formControlName = "nome"></ion-input>
+      <small class = "veref" *ngIf = "(clienteForm.get('nome').errors?.required || clienteForm.get('nome').errors?.minlenght || clienteForm.get('nome').errors?.maxlenght) && form.submitted">Nome inválido, mínimo 3 caracteres</small>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position = "floating">CPF: </ion-label>
+      <ion-input [(ngModel)]= "cliente.cpf" formControlName = "cpf" simpleMask="999.999.999-99"></ion-input>
+      <small class = "veref" *ngIf = "(clienteForm.get('cpf').errors?.required || clienteForm.get('cpf').errors?.maxlenght) && form.submitted">cpf inválido</small>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position = "floating">Telefone: </ion-label>
+      <ion-input [(ngModel)]= "cliente.telefone" formControlName = "telefone" simpleMask="(999) 9 9999-9999"></ion-input>
+      <small class = "veref" *ngIf = "(clienteForm.get('telefone').errors?.required || clienteForm.get('telefone').errors?.maxlenght) && form.submitted">Telefone infoemado não encontrado</small>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position = "floating">Email: </ion-label>
+      <ion-input [(ngModel)] = "cliente.email" formControlName = "email"></ion-input>
+      <small class = "veref" *ngIf = "(clienteForm.get('email').errors?.required || clienteForm.get('email').errors?.email) && form.submitted">Email inválido</small>
+    </ion-item>
+
+    <ion-button type = "submit">Confirmar</ion-button>
+</form>
+
+</ion-content>
+

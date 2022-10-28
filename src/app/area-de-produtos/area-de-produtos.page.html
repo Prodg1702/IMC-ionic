@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor = "let todosDados of todosDados" routerLink = "/produtos-detalhes/{{todosDados.id}}">
+      <ion-label>
+        <h2>{{ todosDados.nome }}</h2>
+        <p>{{ todosDados.valor }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-button expand="block" (click)="mudarTema()">Chose Theme</ion-button> -->
+  <ion-item>
+    <ion-label>Dark Theme</ion-label>
+    <ion-toggle (ionChange)="trocaTema($event)" slot="end"></ion-toggle>
+  </ion-item>
+</ion-content>
